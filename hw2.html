@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이미지 랜덤 변환</title>
+    <style>
+      .card {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="card"></div>
+    </main>
+    <script>
+      const imgArr = [
+        "김다미",
+        "김우빈",
+        "아이유",
+        "원빈",
+        "이나영",
+        "이동욱",
+        "이영애",
+        "정우성",
+        "지성",
+        "최우식",
+        "한소희",
+      ];
+
+      // 맨 처음에 나오는 랜덤 이미지를 위해 하나 뽑아둠
+      let firstImg = imgArr[Math.floor(Math.random() * imgArr.length)];
+
+      // img태그를 생성
+      const addImg = document.createElement("img");
+
+      // 첫 랜덤 이미지의 경로
+      addImg.src = "hw2_images/" + firstImg + ".jpg";
+      // 그외 css 설정 (크기, 그림자, 보더 등등)
+      addImg.style.width = "400px";
+      addImg.style.height = "550px";
+      addImg.style.borderRadius = "20px";
+      addImg.style.boxShadow = "0 0 10px rgba(0,0,0,0.7)";
+
+      // card라는 선택자를 가진 태그의 자식으로 img 태그를 넣어줌
+      document.querySelector(".card").appendChild(addImg);
+
+      // 이미지 클릭시 랜덤이미지를 랜더링할 수 있도록 함수구현
+      function changeImagesHandler() {
+        let randomImg = imgArr[Math.floor(Math.random() * imgArr.length)];
+        addImg.src = "hw2_images/" + randomImg + ".jpg";
+      }
+
+      // 이미지 클릭시 다른 이미지로 바뀔수 있도록 이벤트를 걸어줌
+      addImg.addEventListener("click", changeImagesHandler);
+    </script>
+  </body>
+</html>
