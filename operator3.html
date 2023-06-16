@@ -4,38 +4,75 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      /* .number {
+        background-color: white;
+      }
+      .operator {
+        background-color: white;
+      } */
+      * {
+        color: white;
+      }
+      button {
+        padding: 10px;
+        margin: 2px;
+        width: 80px;
+        background-color: dimgrey;
+        color: white;
+        opacity: 0.5;
+        border-radius: 10px;
+      }
+
+      .calculator {
+        padding: 10px;
+        width: auto;
+        height: 400px;
+        background-color: lightslategrey;
+        opacity: 10;
+        border-radius: 20px;
+      }
+    </style>
   </head>
   <body>
-    <div class="container">
+    <div
+      class="container"
+      style="
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 200px;
+      "
+    >
       <div class="calculator">
         <div class="calculator__display--for-advanced">0</div>
         <div class="calculator__buttons">
           <div class="clear__and__enter">
-            <button class="clear">AC</button>
-            <button class="calculate">Enter</button>
+            <button class="clear" style="width: 170px">AC</button>
+            <button class="calculate" style="width: 170px">Enter</button>
           </div>
           <div class="button__row">
             <button class="number">7</button>
             <button class="number">8</button>
             <button class="number">9</button>
-            <button class="operator">+</button>
+            <button class="operator" style="width: 80px">+</button>
           </div>
           <div class="button__row">
             <button class="number">4</button>
             <button class="number">5</button>
             <button class="number">6</button>
-            <button class="operator">-</button>
+            <button class="operator" style="width: 80px">-</button>
           </div>
           <div class="button__row">
             <button class="number">1</button>
             <button class="number">2</button>
             <button class="number">3</button>
-            <button class="operator">*</button>
+            <button class="operator" style="width: 80px">x</button>
           </div>
           <div class="button__row">
-            <button class="number double">0</button>
-            <button class="decimal">.</button>
-            <button class="operator">/</button>
+            <button class="number double" style="width: 170px">0</button>
+            <button class="decimal" style="width: 80px">.</button>
+            <button class="operator" style="width: 80px">÷</button>
           </div>
         </div>
       </div>
@@ -108,9 +145,9 @@
             // AC(초기화) 버튼을 누를 때 분기
             display.textContent = "0";
             firstNum = "";
-            previousNum = "";
+            // previousNum = "";
             operatorForAdvanced = "";
-            previousKey = "";
+            // previousKey = "";
           }
 
           if (action === "calculate") {
