@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이미지 슬라이더 만들기</title>
+    <style>
+      body {
+        margin: initial;
+        padding: initial;
+      }
+      .img-slider {
+        width: 600px;
+        height: 450px;
+        display: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="wrapper">
+        <div class="img-slider"></div>
+        <button type="button" id="left-button" onclick="leftBtnClickHandler()">
+          이전
+        </button>
+        <button type="button" id="right-button" onclick="rightBtnClickHandler()">
+          다음
+        </button>
+      </div>
+    </main>
+    <script>
+      let point = 1;
+      const imgArr = [
+        "image1",
+        "image2",
+        "image3",
+        "image4",
+        "image5",
+        "image6",
+      ];
+
+      for (let i = 0; i < imgArr.length; i++) {
+        const dogImg = document.createElement("img");
+        dogImg.src = "hw4_images/" + imgArr[i] + ".jpg";
+        dogImg.style.width = "100%";
+        dogImg.style.height = "100%";
+        document.querySelector(".img-slider").appendChild(dogImg);
+        dogImg.style.display = "none";
+        dogImg.id = "image" + (i + 1);
+      }
+
+      document.getElementById("image1").style.display = "block";
+
+      function leftBtnClickHandler() {
+        if (point > 1) {
+          document.getElementById("image" + point).style.display = "none";
+          point--;
+          document.getElementById("image" + point).style.display = "block";
+        }
+      }
+      function rightBtnClickHandler() {
+        if (point < 6) {
+          document.getElementById("image" + point).style.display = "none";
+          point++;
+          document.getElementById("image" + point).style.display = "block";
+        }
+      }
+    </script>
+  </body>
+</html>
